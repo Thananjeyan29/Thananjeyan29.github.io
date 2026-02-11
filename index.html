@@ -303,26 +303,75 @@ footer { padding: 40px; text-align: center; color: #64748b; font-size: 0.9rem; b
 
 <section id="projects" class="reveal">
   <h2>Selected Case Studies</h2>
-  <div class="project-card">
-    <span style="color: var(--primary); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Security Architecture</span>
-    <h3 style="margin: 10px 0;">Secure Cloud Infrastructure</h3>
-    <p style="color: #475569; margin-bottom: 20px;">Engineered a multi-tier VPC environment featuring Bastion hosts and private subnets to eliminate public exposure of critical workloads.</p>
-    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-        <span style="background: #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 0.8rem;">AWS VPC</span>
-        <span style="background: #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 0.8rem;">Terraform</span>
-    </div>
-  </div>
 
-  <div class="project-card">
-    <span style="color: var(--primary); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Automation</span>
-    <h3 style="margin: 10px 0;">Automated Deployment Pipeline</h3>
-    <p style="color: #475569; margin-bottom: 20px;">Implemented a full CI/CD lifecycle using GitHub Actions for this portfolio, integrated with CloudFront for global low-latency delivery.</p>
-    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-        <span style="background: #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 0.8rem;">GitHub Actions</span>
-        <span style="background: #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 0.8rem;">CloudFront</span>
+  <div class="projects-grid">
+
+    <!-- Project 1 -->
+    <div class="project-card">
+      <span style="color: var(--primary); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">
+        AWS Infrastructure
+      </span>
+
+      <h3 style="margin: 10px 0;">
+        Custom VPC Deployment using CloudFormation
+      </h3>
+
+      <p style="color: #475569; margin-bottom: 20px;">
+        Built a production-ready AWS VPC using Infrastructure as Code (CloudFormation).
+        Implemented public and private subnets, Internet Gateway, Route Tables,
+        and Security Groups following best practices.
+      </p>
+
+      <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 15px;">
+        <span style="background: #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 0.8rem;">AWS VPC</span>
+        <span style="background: #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 0.8rem;">CloudFormation</span>
+        <span style="background: #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 0.8rem;">EC2</span>
+      </div>
+
+      <a href="https://github.com/Thananjeyan29"
+         target="_blank"
+         style="color: var(--primary); font-weight: 600; text-decoration: none;">
+         🔗 View on GitHub →
+      </a>
     </div>
+
+
+    <!-- Project 2 (MAIN SECURITY PROJECT) -->
+    <div class="project-card">
+      <span style="color: var(--primary); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">
+        AWS Security Architecture
+      </span>
+
+      <h3 style="margin: 10px 0;">
+        Secure Private EC2 with Bastion Host & NAT Gateway
+      </h3>
+
+      <p style="color: #475569; margin-bottom: 20px;">
+        Designed and deployed a secure AWS VPC using CloudFormation, featuring a Bastion Host
+        for controlled SSH access, a Private EC2 without public IP, and a NAT Gateway
+        for outbound internet connectivity.
+        Hosted a static portfolio website using Apache inside a private subnet.
+      </p>
+
+      <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 15px;">
+        <span style="background: #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 0.8rem;">AWS VPC</span>
+        <span style="background: #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 0.8rem;">EC2</span>
+        <span style="background: #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 0.8rem;">Bastion Host</span>
+        <span style="background: #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 0.8rem;">NAT Gateway</span>
+        <span style="background: #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 0.8rem;">CloudFormation</span>
+        <span style="background: #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 0.8rem;">Apache</span>
+      </div>
+
+      <a href="https://github.com/Thananjeyan29/aws-private-ec2-bastion-nat"
+         target="_blank"
+         style="color: var(--primary); font-weight: 600; text-decoration: none;">
+         🔗 View Project on GitHub →
+      </a>
+    </div>
+
   </div>
 </section>
+
 
 <section id="contact" class="reveal">
   <div class="contact-grid">
@@ -384,4 +433,3 @@ footer { padding: 40px; text-align: center; color: #64748b; font-size: 0.9rem; b
 
 </body>
 </html>
-
