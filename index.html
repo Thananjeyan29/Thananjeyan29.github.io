@@ -42,26 +42,10 @@ body {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: linear-gradient(rgba(248, 250, 252, 0.88), rgba(248, 250, 252, 0.88)), 
-              url('workstation.jpg');
+  background: linear-gradient(rgba(248, 250, 252, 0.88), rgba(248, 250, 252, 0.88)),url('workstation.jpg');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-/* Desktop Only: Fixed Attachment */
-@media (min-width: 769px) {
-  .bg-wrapper {
-    background-attachment: fixed;
-  }
-}
-
-/* Mobile Only: Scroll Attachment to prevent background jumping/movement */
-@media (max-width: 768px) {
-  .bg-wrapper {
-    background-attachment: scroll;
-    height: 110vh; /* Extra height to cover URL bar shifts */
-  }
 }
 
 .circle {
@@ -150,18 +134,7 @@ nav h2 { color: #fff; font-weight: 700; font-size: 1.4rem; letter-spacing: -0.5p
 }
 .cta-btn:hover { transform: translateY(-3px); background: var(--primary-dark); }
 
-/* ================= UNIFIED HOVER EFFECTS ================= */
-.skill-item, .project-card, .contact-grid {
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, background 0.4s ease;
-}
-
-.skill-item:hover, .project-card:hover { 
-  transform: translateY(-10px); 
-  background: #fff; 
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08); 
-}
-
-/* ================= SECTIONS ================= */
+/* ================= SECTIONS & CARDS ================= */
 section { padding: 100px 8%; }
 section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 60px; font-weight: 800; }
 
@@ -176,7 +149,9 @@ section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 60px; font-we
   border-radius: 20px;
   text-align: center;
   border: 1px solid rgba(255,255,255,0.4);
+  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+.skill-item:hover { transform: translateY(-10px); background: #fff; box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
 .skill-item i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
 
 /* ================= PROJECTS ================= */
@@ -187,6 +162,47 @@ section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 60px; font-we
   border-radius: 24px;
   border: 1px solid rgba(255,255,255,0.5);
   margin-bottom: 30px;
+  transition: 0.4s ease;
+}
+.project-card:hover { transform: translateY(-5px); background: #fff; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+
+.tag {
+  background: #e2e8f0; 
+  padding: 5px 12px; 
+  border-radius: 6px; 
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* NEW: Enhanced GitHub Buttons */
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  padding: 12px 24px;
+  border: 2px solid var(--primary);
+  border-radius: 10px;
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.project-link:hover {
+  background: var(--primary);
+  color: white !important;
+  transform: translateX(8px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+.project-link i.fa-arrow-right {
+  transition: transform 0.3s ease;
+}
+
+.project-link:hover i.fa-arrow-right {
+  transform: translateX(4px);
 }
 
 /* ================= CONTACT ================= */
@@ -198,10 +214,9 @@ section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 60px; font-we
   color: white;
   padding: 60px;
   border-radius: 32px;
+  transition: 0.4s ease;
 }
-.contact-grid:hover {
-  transform: scale(1.02);
-}
+.contact-grid:hover { transform: scale(1.01); }
 .contact-info h3 { font-size: 2.2rem; margin-bottom: 20px; color: var(--accent); }
 .social-links { display: flex; gap: 15px; margin-top: 25px; }
 .social-links a { 
@@ -230,13 +245,9 @@ section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 60px; font-we
   .nav-list.active { right: 0; }
   
   .hero h1 { font-size: 3rem; }
-  .name-intro { font-size: 1rem; letter-spacing: 2px; }
-  
   .contact-grid { grid-template-columns: 1fr; padding: 40px 25px; }
-  .contact-grid:hover { transform: none; }
 }
 
-/* Reveal Animation Class */
 .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s all ease; }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
@@ -305,73 +316,48 @@ footer { padding: 40px; text-align: center; color: #64748b; font-size: 0.9rem; b
   <h2>Selected Case Studies</h2>
 
   <div class="projects-grid">
-
-    <!-- Project 1 -->
     <div class="project-card">
       <span style="color: var(--primary); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">
         AWS Infrastructure
       </span>
-
-      <h3 style="margin: 10px 0;">
-        Custom VPC Deployment using CloudFormation
-      </h3>
-
+      <h3 style="margin: 10px 0;">Custom VPC Deployment using CloudFormation</h3>
       <p style="color: #475569; margin-bottom: 20px;">
-        Built a production-ready AWS VPC using Infrastructure as Code (CloudFormation).
-        Implemented public and private subnets, Internet Gateway, Route Tables,
-        and Security Groups following best practices.
+        Built a production-ready AWS VPC using Infrastructure as Code. Implemented public/private subnets, 
+        Internet Gateway, and Security Groups following AWS best practices.
       </p>
-
       <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 15px;">
-        <span style="background: #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 0.8rem;">AWS VPC</span>
-        <span style="background: #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 0.8rem;">CloudFormation</span>
-        <span style="background: #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 0.8rem;">EC2</span>
+        <span class="tag">AWS VPC</span>
+        <span class="tag">CloudFormation</span>
+        <span class="tag">EC2</span>
       </div>
-
-      <a href="https://github.com/Thananjeyan29"
-         target="_blank"
-         style="color: var(--primary); font-weight: 600; text-decoration: none;">
-         🔗 View on GitHub →
+      
+      <a href="https://github.com/Thananjeyan29" target="_blank" class="project-link">
+        <i class="fab fa-github"></i> View Technical Source <i class="fas fa-arrow-right"></i>
       </a>
     </div>
 
-
-    <!-- Project 2 (MAIN SECURITY PROJECT) -->
     <div class="project-card">
       <span style="color: var(--primary); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">
         AWS Security Architecture
       </span>
-
-      <h3 style="margin: 10px 0;">
-        Secure Private EC2 with Bastion Host & NAT Gateway
-      </h3>
-
+      <h3 style="margin: 10px 0;">Secure Private EC2 with Bastion Host & NAT Gateway</h3>
       <p style="color: #475569; margin-bottom: 20px;">
-        Designed and deployed a secure AWS VPC using CloudFormation, featuring a Bastion Host
-        for controlled SSH access, a Private EC2 without public IP, and a NAT Gateway
-        for outbound internet connectivity.
-        Hosted a static portfolio website using Apache inside a private subnet.
+        Designed a secure VPC featuring a Bastion Host for controlled SSH access and a NAT Gateway 
+        for outbound connectivity. Hosted an Apache portfolio in a private subnet.
       </p>
-
       <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 15px;">
-        <span style="background: #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 0.8rem;">AWS VPC</span>
-        <span style="background: #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 0.8rem;">EC2</span>
-        <span style="background: #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 0.8rem;">Bastion Host</span>
-        <span style="background: #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 0.8rem;">NAT Gateway</span>
-        <span style="background: #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 0.8rem;">CloudFormation</span>
-        <span style="background: #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 0.8rem;">Apache</span>
+        <span class="tag">Bastion Host</span>
+        <span class="tag">NAT Gateway</span>
+        <span class="tag">Apache</span>
+        <span class="tag">VPC</span>
       </div>
-
-      <a href="https://github.com/Thananjeyan29/aws-private-ec2-bastion-nat"
-         target="_blank"
-         style="color: var(--primary); font-weight: 600; text-decoration: none;">
-         🔗 View Project on GitHub →
+      
+      <a href="https://github.com/Thananjeyan29/aws-private-ec2-bastion-nat" target="_blank" class="project-link">
+        <i class="fab fa-github"></i> View Technical Source <i class="fas fa-arrow-right"></i>
       </a>
     </div>
-
   </div>
 </section>
-
 
 <section id="contact" class="reveal">
   <div class="contact-grid">
@@ -411,8 +397,9 @@ footer { padding: 40px; text-align: center; color: #64748b; font-size: 0.9rem; b
   document.querySelectorAll('.nav-list a').forEach(link => {
     link.addEventListener('click', () => {
       navList.classList.remove('active');
-      menuToggle.querySelector('i').classList.add('fa-bars');
-      menuToggle.querySelector('i').classList.remove('fa-times');
+      const icon = menuToggle.querySelector('i');
+      icon.classList.add('fa-bars');
+      icon.classList.remove('fa-times');
     });
   });
 
